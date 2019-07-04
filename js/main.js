@@ -10,6 +10,10 @@ let slideNav = (function(){
     //------------  HTML node elements ------------------//
 
     let $sideNav = document.querySelector('.side-nav');
+
+    if (!$sideNav){
+        return;
+    }
     let $listItems = $sideNav.querySelectorAll('.side-nav__list a');
     let $menuIcon = $sideNav.querySelector('.side-nav__menu-icon');
     let $firstLevelItems = $sideNav.querySelectorAll('.side-nav__list>li>a');
