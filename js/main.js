@@ -12,7 +12,9 @@ let slideNav = (function(){
     let $sideNav = document.querySelector('.side-nav');
 
     if (!$sideNav){
-        return;
+        return {
+            init: (function(accordeon){return false})
+        }
     }
     let $listItems = $sideNav.querySelectorAll('.side-nav__list a');
     let $menuIcon = $sideNav.querySelector('.side-nav__menu-icon');
