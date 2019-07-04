@@ -1,0 +1,32 @@
+
+.login-container {
+  padding: 0 rem-calc(30px);
+  @include center('vertical');
+  left: 0;
+  right: 0;
+  @include media('screen', '>=tablet') {
+    @include center('both');
+  }
+
+}
+.login {
+  text-align: center;
+  width: auto;
+
+  padding: rem-calc(50px) rem-calc(30px);
+
+
+  @include media('screen', '>=tablet') {
+    padding: rem-calc(100px) rem-calc(30px);
+    max-width: rem-calc(600px);
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: rem-calc(25px);
+  }
+
+  &__group {
+    margin-bottom: rem-calc(25px);
+  }
+}

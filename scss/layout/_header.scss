@@ -1,0 +1,32 @@
+
+.main-header {
+  height:80px;
+  background: #00ffff;
+  padding: 0 20px;
+
+  &__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 80px;
+    overflow: auto;
+    display: flex;
+  }
+
+  &__logo {
+    height: 60px;
+    box-sizing: border-box;
+    flex: 1;
+    align-self: center;
+  }
+
+  &__title {
+    flex: 3;
+    align-self: center;
+    font-weight: bold;
+    font-size: 22px;
+  }
+
+  &__logo-img {
+    height: 100%;
+  }
+}

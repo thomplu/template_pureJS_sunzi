@@ -1,0 +1,147 @@
+
+
+
+
+// custom font mixin
+@mixin fontface ($fontfamily, $filename, $fontweight: normal, $fontstyle: normal) {
+  font-family: $fontfamily;
+  src:url('../fonts/#{$filename}.eot');
+  src:url('../fonts/#{$filename}.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/#{$filename}.woff') format('woff'),
+  url('../fonts/#{$filename}.ttf') format('truetype'),
+  url('../fonts/#{$filename}.svg#{$filename}') format('svg');
+  font-weight: $fontweight;
+  font-style: $fontstyle;
+}
+
+@mixin breakLongWords {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+//Center element based on absolute positioning
+//Note: Parent Element has to have postion: relative
+@mixin center($position) {
+  position: absolute;
+
+  @if $position == 'vertical' {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  @else if $position == 'horizontal' {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translate(-50%);
+  }
+  @else if $position == 'both' {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+
+  $extmods: (
+          eot: "?",
+          svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+          otf: "opentype",
+          ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+@mixin cardLook {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+//Note: Element has to be set to position: relative
+@mixin boxShadowTransitionable($on, $duration, $x: null, $y: null, $blur: null, $spread: null, $color: null) {
+  position: relative;
+  @if $on {
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      box-shadow: $x $y $blur $spread $color;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
+  }
+  @else {
+    &:after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      box-shadow: $x $y $blur $spread $color;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+  }
+
+}
+

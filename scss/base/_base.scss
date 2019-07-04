@@ -1,0 +1,84 @@
+
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Bold', bold, normal, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-BoldItalic', bold, italic, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Regular', normal, normal, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Italic', normal, italic, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Light', 300, normal, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-LightItalic', 300, italic, 'ttf');
+
+* {
+  font-family: 'Fira Sans', sans-serif;
+  color: $greyText;
+  font-size: rem-calc(16px);
+  font-weight: 300;
+
+}
+
+body {
+  background-color: $greyBg;
+}
+
+p {
+
+  font-size: rem-calc(16px);
+  transition: all 4s ease;
+  color: $greyText;
+}
+
+a {
+  color: $orangePrimary;
+  text-decoration: none;
+}
+
+.example{
+  display: flex;
+}
+
+.someOther{
+  display: flex;
+}
+h1{
+  font-size:42px;
+  font-weight: bold;
+
+}
+
+h2{
+  font-size: 42px;
+  font-weight: 300;
+}
+
+h3 {
+  font-size: 36px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 32px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 28px;
+  font-weight: 300;
+}
+
+@media screen and(min-width: 768px){
+  p{
+    font-size: 12px;
+  }
+}
+
+input {
+  max-width: 300px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
+  text-align: center;
+  width: 100%
+
+}
+
+label {
+  font-size: rem-calc(20px);
+}

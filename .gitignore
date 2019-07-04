@@ -1,0 +1,9 @@
+### IDE/editor/System
+/.idea
+/*.sublime-*
+Thumbs.db
+
+### Nodejs
+node-modules/
+node-modules/**
+npm-debug.log

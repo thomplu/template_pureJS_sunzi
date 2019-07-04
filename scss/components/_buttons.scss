@@ -1,0 +1,30 @@
+
+.btn {
+  width: 155px;
+  height: 40px;
+  border-radius: 8px;
+  background-image: linear-gradient(45deg, $orangeGrandientLight 45%, $orangeGrandientDark 100%);
+  text-transform: uppercase;
+  color: $whiteText;
+  font-weight: normal;
+  border:none;
+  .icon {
+    margin-left:6px;
+    margin-right: -10px;
+    width: 16px;
+    height: 11px;
+  }
+  &--shadow {
+    transition: all 0.2s ease;
+    &:hover {
+      transform: scale3d(1.01, 1.01, 1);
+      box-shadow: 0 0 24px 0 rgba(0,0,0,0.4);
+
+    }
+  }
+}
+
+
+.btn--arrow-right {
+
+}
