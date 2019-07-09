@@ -2,171 +2,100 @@
 'use strict';
 
 /**
- * Side Navigation logic
- * Build according to the Revealing Module Pattern
+ * Definition of a functional module according ti the Revealing Module Pattern by
+ * Encapsulates all functions in variables in one object - makes it easy reusable, transferable
+ * Allows the declaration of several instances
+ *
+ * More on the Revealing Module Pattern in JS:
+ * https://gist.github.com/zcaceres/bb0eec99c02dda6aac0e041d0d4d7bf2
+ *
  */
-let slideNav = (function(){
+let someModule = (function(){
 
-    //------------  HTML node elements ------------------//
+    //------------  Definition of HTML node elements (private) ------------------//
 
-    let $sideNav = document.querySelector('.side-nav');
+    let $moduleNode = document.querySelector('.module');
 
-    if (!$sideNav){
+
+    //check if node element is available
+    //If not exit the creation of the module - return of init: false indicates this
+    if (!$moduleNode){
         return {
             init: (function(accordeon){return false})
         }
     }
-    let $listItems = $sideNav.querySelectorAll('.side-nav__list a');
-    let $menuIcon = $sideNav.querySelector('.side-nav__menu-icon');
-    let $firstLevelItems = $sideNav.querySelectorAll('.side-nav__list>li>a');
 
-    //------------  Varaibles ---------------------------//
+    let $listItems = $moduleNode.querySelectorAll('.module__list-item');
+    let $menuIcon = $moduleNode.querySelector('.module__icon');
+    let $firstLevelItems = $moduleNode.querySelectorAll('.module__list-item>li>a');
 
-    let isAccordeon = false;
+    //------------  Definition of variables ---------------------------//
 
-    //-------------- Functions ---------------------------//
+    let isSomeBoolean = false;
+
+    //-------------- Definition of private functions ---------------------------//
 
     function initEvents(){
 
 
         //Click events
-        $sideNav.addEventListener('click', function(event) {
+        $moduleNode.addEventListener('click', function(event) {
            if(event.target && event.target.matches('a')){
-               listItemClickHandler(event, event.target);
-               event.stopPropagation();
-               event.preventDefault();
-           } else if (event.target && event.target.matches('.side-nav__menu-icon')){
-               menuClickHandler();
-               event.stopPropagation();
+               //Add Actions, call Handlers
+               someClickHandler();
            }
-        }, false);
-        //----------------
-
-        /*
-        for (let i = 0; i < $listItems.length; i++) {
-            $listItems[i].addEventListener('click', (e) => {listItemClickHandler(e, e.target)});
-        }
-        */
-
-        //Only for testing!
-        for(let i = 0; i < $firstLevelItems.length; i++) {
-            $firstLevelItems[i].addEventListener('click', function(e) {testImages(e, i)});
-        }
+        });
 
         //Wait for the browser to fully render the page
         window.addEventListener('load', function() {
-           initListHeights();
+           //Add on page load handlers
+            someOnloadHandler();
         });
     }
 
-    function menuClickHandler() {
-
-        $sideNav.classList.toggle('side-nav--open');
+    function someOnloadHandler() {
+        //Add handler actions
     }
 
-    function listItemClickHandler(event, $item) {
-
-        let $listItem = $item.parentNode;
-        let $subList = $item.parentNode.querySelector('ul');
-        Array.prototype.forEach.call($listItems, function($item){
-            $item.parentNode.classList.remove('active');
-        });
-        $listItem.classList.add('active');
-        let $parentItem = $listItem.parentNode.parentNode;
-        if ($parentItem.nodeName ==='LI') {
-            $parentItem.classList.add('active');
-        }
-        if(isAccordeon){
-            toggleSublist($subList);
-        }
-        event.preventDefault();
+    function someClickHandler(){
+        //Add click handler actions
+        someOtherFunction();
     }
 
-    function toggleSublist($subList){
-
-        if ($subList){
-            $subList.classList.toggle('open');
-            if ($subList.classList.contains('open')) {
-                $subList.style.maxHeight = $subList.getAttribute('data-maxHeight') + 'px';
-            } else {
-                $subList.style.maxHeight = 0;
-            }
-        }
+    function someOtherFunction(){
+        //Some actions
     }
 
-    function initListHeights(){
-        let maxHeight = 0;
-        let $subLists = $sideNav.querySelectorAll('ul');
-        /*
-        setTimeout(()=>{
-            $subLists.forEach(($subList) => {
-                maxHeight = $subList.offsetHeight;
-                $subList.setAttribute("data-maxHeight", maxHeight);
-                $subList.style.maxHeight = maxHeight + 'px';
-            });
-        },20);
-        */
-        Array.prototype.forEach.call($subLists, function($subList) {
-            maxHeight = $subList.offsetHeight;
-            $subList.setAttribute("data-maxHeight", maxHeight);
-            $subList.style.maxHeight = maxHeight + 'px';
-        });
-    }
-
-    function initMenu(accordeon) {
+    //Init actions
+    function initMenu(someParam) {
 
         //Pass parameters
-        isAccordeon = accordeon;
+        isSomeBoolean = someParam;
 
         initEvents();
     }
 
-    /**
-     * Only for testing purpose
-     * @ToDo Remove for dist
-     * @param event
-     * @param index
-     */
-    function testImages(event, index){
+    //------------------- Call of init functions ------------------------------//
 
-        let $styleGuideImage = document.querySelector('.styleguide__image');
 
-        switch (index) {
-            case 0:
-                $styleGuideImage.src="images/styleguide-bsp/01_Colors.png";
-                break;
-            case 1:
-                $styleGuideImage.src="images/styleguide-bsp/02_Color_primary.png";
-                break;
-            case 2:
-                $styleGuideImage.src="images/styleguide-bsp/03_Color_secondary.png";
-                break;
-            case 3:
-                $styleGuideImage.src="images/styleguide-bsp/11_Font.png";
-                break;
-            case 4:
-                $styleGuideImage.src="images/styleguide-bsp/11_Font_typeface.png";
-                break;
-            case 5:
-                $styleGuideImage.src="images/styleguide-bsp/20_icons.png";
-                break;
-            default:
-                break;
-        }
-    }
 
-    //Returning public functions
+
+    //-------------- Definition of public functions ---------------------------//
     return {
         init: initMenu
     }
 
 })();
 
+
+
 /**
  * Main function
+ * Init your modules here
  */
 (function(){
 
+    //Fix for older Browser matches function
     if (!Element.prototype.matches) {
         Element.prototype.matches =
             Element.prototype.matchesSelector ||
@@ -180,10 +109,11 @@ let slideNav = (function(){
                 while (--i >= 0 && matches.item(i) !== this) {}
                 return i > -1;
             };
-    }else {
     }
 
-    slideNav.init(false);
+
+    someModule.init(false);
+
 })();
 
 

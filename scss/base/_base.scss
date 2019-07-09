@@ -30,13 +30,6 @@ a {
   text-decoration: none;
 }
 
-.example{
-  display: flex;
-}
-
-.someOther{
-  display: flex;
-}
 h1{
   font-size:42px;
   font-weight: bold;
@@ -76,9 +69,16 @@ input {
   border: 1px solid #cccccc;
   text-align: center;
   width: 100%
-
 }
 
 label {
   font-size: rem-calc(20px);
+}
+
+//Basic container width max content width and padding for smaller viewports
+.container {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+
 }

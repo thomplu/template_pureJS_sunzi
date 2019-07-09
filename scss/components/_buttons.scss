@@ -1,13 +1,35 @@
 
 .btn {
-  width: 155px;
+  min-width: 120px;
   height: 40px;
   border-radius: 8px;
-  background-image: linear-gradient(45deg, $orangeGrandientLight 45%, $orangeGrandientDark 100%);
+  background-image: linear-gradient(45deg, $orangeLightGradient 45%, $orangeDarkGradient 100%);
   text-transform: uppercase;
   color: $whiteText;
   font-weight: normal;
   border:none;
+  padding: 10px 30px;
+  position: relative;
+  transition: transform .3s ease;
+  &:after {
+    content: '';
+    border-radius: 8px;
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    opacity: 0;
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.4);
+    transition: opacity .3s ease;
+  }
+  &:hover {
+    &:after {
+      opacity: 1.0;
+    }
+    transform: scale3d(1.01, 1.01, 1);
+  }
+
   .icon {
     margin-left:6px;
     margin-right: -10px;
@@ -15,13 +37,17 @@
     height: 11px;
   }
   &--shadow {
-    transition: all 0.2s ease;
+    transition: all 0.2s ease-out;
     &:hover {
       transform: scale3d(1.01, 1.01, 1);
       box-shadow: 0 0 24px 0 rgba(0,0,0,0.4);
 
     }
   }
+}
+
+button {
+  @extend .btn;
 }
 
 

@@ -1,22 +1,22 @@
 
-.main-header {
-  height:80px;
-  background: #00ffff;
-  padding: 0 20px;
+$menuHeight: 80px;
+
+.header {
+  height:$menuHeight;
+  padding-top: 20px;
+  background: linear-gradient(45deg, $orangeLightGradient 45%, $orangeDarkGradient 100%);
 
   &__inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    height: 80px;
-    overflow: auto;
     display: flex;
+    height: 100%;
   }
 
   &__logo {
-    height: 60px;
+    height: 100%;
     box-sizing: border-box;
-    flex: 1;
+    margin-right: auto;
     align-self: center;
+    padding-bottom: 5px;
   }
 
   &__title {
@@ -26,7 +26,74 @@
     font-size: 22px;
   }
 
+  &__menu {
+    display: flex;
+    align-items: flex-end;
+  }
+
   &__logo-img {
     height: 100%;
+  }
+}
+
+.menu {
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    &>li {
+      display: inline-block;
+      position: relative;
+      &>a {
+        display: inline-block;
+        padding: 0 15px;
+        box-sizing: border-box;
+        color: #fff;
+        line-height: $menuHeight;
+
+        position: relative;
+
+      }
+      &:hover {
+        &:after {
+          content:'';
+          left: 0;
+          right: 0;
+          position: absolute;
+          bottom: 18px;
+          height: 2px;
+          background: #fff;
+        }
+        .menu__sublist {
+          display: block;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__sublist {
+    position: absolute;
+    top: 100%;
+    display: none;
+    opacity: 0;
+    list-style: none;
+    padding: 0;
+    margin:0;
+    background: #fff;
+    min-width: 250px;
+    transition: opacity .5s ease;
+    border: 1px solid #ddd;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    li {
+      a {
+        display: inline-block;
+        padding: 15px 20px;
+      }
+      border-bottom: 1px solid #ddd;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
   }
 }
