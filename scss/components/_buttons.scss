@@ -3,6 +3,8 @@
   min-width: 120px;
   height: 40px;
   border-radius: 8px;
+  display: inline-block;
+  box-sizing: border-box;
   background-image: linear-gradient(45deg, $orangeLightGradient 45%, $orangeDarkGradient 100%);
   text-transform: uppercase;
   color: $whiteText;

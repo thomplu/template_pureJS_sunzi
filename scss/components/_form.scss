@@ -1,0 +1,159 @@
+
+.form {
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    position: relative;
+    &--error {
+      input, select{
+        border-color: $red;
+      }
+      &:after {
+        content: 'Bitte überprüfen Sie Ihre Eingabe';
+        color: $red;
+        font-weight: 600;
+        display: block;
+      }
+    }
+    &--required {
+      label:after{
+        content: '*';
+      }
+    }
+    &.active, &.filled {
+      .form__float-label {
+        transform: translate3d(0, -18px, 0);
+        background: #fff;
+        font-size: 13px;
+      }
+    }
+  }
+  &__label {
+    display: block;
+  }
+  &__float-label {
+    position: absolute;
+    left: 10px;
+    transform-origin: top left;
+    transform: translate3d(0, 0, 0);
+    transition: all .1s ease-in-out;
+    top: 8px;
+    line-height: 1;
+    width: auto !important;
+    display: inline-block;
+    padding: 3px 5px;
+    background: transparent;
+  }
+
+  &__input {
+    text-align: left;
+    display: block;
+    max-width: none;
+    min-width: auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+    width: 100%;
+    border-color: #aaa;
+    background-color: #fff;
+    color: $greyText;
+  }
+
+  &__radio {
+    display: flex;
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      &:checked ~ .form__cm {
+        background: #fff;
+        &:after {
+          content: '';
+          position: absolute;
+          width:10px;
+          height: 10px;
+          left: 7px;
+          top: 7px;
+          border-radius: 50%;
+          background-color: $orangePrimary;
+        }
+      }
+    }
+
+    label {
+      display: flex;
+      position: relative;
+      line-height: 24px;
+      cursor: pointer;
+      margin-right: 15px;
+    }
+    &--listed {
+      flex-direction: column;
+      label {
+        margin-bottom: 15px;
+      }
+      .form__cm{
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    position: relative;
+    line-height: 24px;
+    cursor: pointer;
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      &:checked ~ .form__cm {
+        background: #fff;
+        &:after {
+          @include fontAwesomeRegularStyle;
+          content: '\f00c';
+          position: absolute;
+          left: 3px;
+          top: 3px;
+          color: $orangePrimary;
+        }
+      }
+    }
+
+    label {
+      display: flex;
+      position: relative;
+      line-height: 24px;
+      cursor: pointer;
+    }
+  }
+
+  &__cm {
+    background: #fff;
+    border: 1px solid $orangePrimary;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    position: relative;
+    margin-right: 5px;
+  }
+  &__cm--radio {
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  &__cm--cb {
+    margin-right: 10px;
+  }
+
+  &__submit {
+    align-self: flex-end;
+    &--left {
+      align-self: flex-start;
+    }
+  }
+}

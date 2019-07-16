@@ -1,10 +1,4 @@
 
-@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Bold', bold, normal, 'ttf');
-@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-BoldItalic', bold, italic, 'ttf');
-@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Regular', normal, normal, 'ttf');
-@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Italic', normal, italic, 'ttf');
-@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Light', 300, normal, 'ttf');
-@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-LightItalic', 300, italic, 'ttf');
 
 * {
   font-family: 'Fira Sans', sans-serif;
@@ -15,7 +9,7 @@
 }
 
 body {
-  background-color: $greyBg;
+  background-color: #fff;
 }
 
 p {
@@ -67,7 +61,6 @@ input {
   height: 40px;
   border-radius: 8px;
   border: 1px solid #cccccc;
-  text-align: center;
   width: 100%
 }
 

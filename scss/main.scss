@@ -1,6 +1,7 @@
 
 
 @import "vendors/include-media";
+@import "vendors/fontawesome";
 
 @import "helpers/variables";
 @import "helpers/animations";
@@ -15,6 +16,7 @@
 @import "components/card";
 @import "components/form";
 @import "components/icons";
+@import "components/lists";
 
 @import "layout/header";
 @import "layout/footer";

@@ -1,0 +1,38 @@
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Bold', bold, normal, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-BoldItalic', bold, italic, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Regular', normal, normal, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Italic', normal, italic, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-Light', 300, normal, 'ttf');
+@include font-face('Fira Sans', '#{$fontPathFira}FiraSans-LightItalic', 300, italic, 'ttf');
+
+/* Fontawesome Pro Light */
+
+@font-face {
+  font-family: 'Fontawesome Light';
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  src: url("#{$fontPath}Fontawesome/fa-light-300.eot");
+  src: url("#{$fontPath}Fontawesome/fa-light-300.eot?#iefix") format("embedded-opentype"),
+    url("#{$fontPath}Fontawesome/fa-light-300.woff2") format("woff2"),
+    url("#{$fontPath}Fontawesome/fa-light-300.woff") format("woff"),
+    url("#{$fontPath}Fontawesome/fa-light-300.ttf") format("truetype"),
+    url("#{$fontPath}Fontawesome/fa-light-300.svg#fontawesome") format("svg");
+}
+
+
+@font-face {
+  font-family: 'Fontawesome Regular';
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  src: url("#{$fontPath}Fontawesome/fa-regular-400.eot");
+  src: url("#{$fontPath}Fontawesome/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+    url("#{$fontPath}Fontawesome/fa-regular-400.woff2") format("woff2"),
+    url("#{$fontPath}Fontawesome/fa-regular-400.woff") format("woff"),
+    url("#{$fontPath}Fontawesome/fa-regular-400.ttf") format("truetype"),
+    url("#{$fontPath}Fontawesome/fa-regular-400.svg#fontawesome") format("svg");
+}
+
+//@include font-face('Fontawesome Light', '#{$fontPath}fa-light-300', normal, normal, 'ttf');
+

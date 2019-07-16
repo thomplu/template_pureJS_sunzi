@@ -1,0 +1,41 @@
+.list {
+  list-style: none;
+  padding: 0;
+
+  li {
+   padding: 3px 0 3px 15px;
+    position: relative;
+  }
+
+  li:before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: $orangePrimary;
+    position: absolute;
+    top: 50%;
+    left:0;
+    transform: translateY(-50%);
+  }
+}
+
+ul.icon-list {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 5px 0 5px 15px;
+    position: relative;
+  }
+  li:before {
+    content: '\f054';
+    font-family: "Fontawesome Light";
+    font-weight: normal;
+    position: absolute;
+    left: 0;
+    padding: 3px 0;
+  }
+
+}
+
+
