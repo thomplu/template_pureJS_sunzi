@@ -1,12 +1,10 @@
-
-
-@import "vendors/include-media";
-@import "vendors/fontawesome";
-
 @import "helpers/variables";
 @import "helpers/animations";
 @import "helpers/functions";
 @import "helpers/mixins";
+
+@import "vendors/fontawesome";
+@import "vendors/include-media";
 
 @import "base/reset";
 @import "base/base";

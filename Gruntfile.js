@@ -251,7 +251,7 @@ module.exports = function(grunt) {
     });
 
     //watch + browser sync
-    grunt.registerTask('dev', ['sass:dev']);
+    grunt.registerTask('dev', ['sass:dev', 'postcss:dev']);
 
     //css beautiful
     grunt.registerTask('cssbeauty', ['sass:dist', 'postcss:dist','cmq:dist', 'csscomb:dist', 'cssmin:dist']);

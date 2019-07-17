@@ -58,14 +58,18 @@ h4 {
 
 input {
   max-width: 300px;
-  height: 40px;
-  border-radius: 8px;
+  height: $heightBtnInput;
+  border-radius: $borderRadiusBasic;
   border: 1px solid #cccccc;
   width: 100%
 }
 
 label {
   font-size: rem-calc(20px);
+}
+
+select {
+  border-radius: $borderRadiusBasic;
 }
 
 //Basic container width max content width and padding for smaller viewports

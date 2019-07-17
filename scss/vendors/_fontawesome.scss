@@ -5,8 +5,8 @@
   font-style: normal;
   font-weight: 300;
   font-display: auto;
-  src: url("@{font-directory}/Fontawesome/fa-light-300.eot");
-  src: url("@{font-directory}/Fontawesome/fa-light-300.eot?#iefix") format("embedded-opentype"), url("@{font-directory}/Fontawesome/fa-light-300.woff2") format("woff2"), url("@{font-directory}/Fontawesome/fa-light-300.woff") format("woff"), url("@{font-directory}/Fontawesome/fa-light-300.ttf") format("truetype"), url("@{font-directory}/Fontawesome/fa-light-300.svg#fontawesome") format("svg");
+  src: url("#{$fontPath}Fontawesome/fa-light-300.eot");
+  src: url("#{$fontPath}Fontawesome/fa-light-300.eot?#iefix") format("embedded-opentype"), url("#{$fontPath}Fontawesome/fa-light-300.woff2") format("woff2"), url("#{$fontPath}Fontawesome/fa-light-300.woff") format("woff"), url("#{$fontPath}Fontawesome/fa-light-300.ttf") format("truetype"), url("#{$fontPath}Fontawesome/fa-light-300.svg#fontawesome") format("svg");
 }
 
 .fal {

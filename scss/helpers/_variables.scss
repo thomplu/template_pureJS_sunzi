@@ -11,7 +11,7 @@ $breakpoints: (
 );
 
 // This is the default html and body font-size for the base rem value.
-$rem-base: 16px;
+//$rem-base: 16px;
 
 $media-expressions: (
         'screen': 'screen',
@@ -22,6 +22,11 @@ $media-expressions: (
         'retina2x': '(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)',
         'retina3x': '(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)'
 );
+
+//Dimension:
+
+$heightBtnInput: 45px;
+$borderRadiusBasic: 8px;
 
 //Paths
 

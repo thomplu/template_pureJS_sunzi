@@ -1,5 +1,7 @@
 // STRIP UNIT
 // It strips the unit of measure and returns it
+
+$rem-base: 16px;
 @function strip-unit($num) {
   @return $num / ($num * 0 + 1);
 }
