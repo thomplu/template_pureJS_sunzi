@@ -41,6 +41,12 @@
     width: 16px;
     height: 11px;
   }
+  &--round {
+    border-radius: 9999px;
+    &:after {
+      border-radius: 9999px;
+    }
+  }
   &--shadow {
     transition: all 0.2s ease-out;
     &:hover {

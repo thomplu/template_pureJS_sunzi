@@ -6728,6 +6728,10 @@ select {
     margin-right: -10px;
     width: 16px;
     height: 11px; }
+  .btn--round {
+    border-radius: 9999px; }
+    .btn--round:after {
+      border-radius: 9999px; }
   .btn--shadow {
     -webkit-transition: all 0.2s ease-out;
     -o-transition: all 0.2s ease-out;
