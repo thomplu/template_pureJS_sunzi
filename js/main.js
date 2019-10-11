@@ -106,7 +106,7 @@ let floatLabels = (function(){
 
         let $floatLabels = [];
         let $floatLabelInputs = [];
-        let $floatLabelGroups = [];
+        let focus = [];
 
 
         //-------------- Definition of private functions ---------------------------//
